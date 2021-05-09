@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/concept",
+      "handler": "concept.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/concept",
+      "handler": "concept.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/concept",
+      "handler": "concept.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

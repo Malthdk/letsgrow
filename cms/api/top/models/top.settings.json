@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "tops",
+  "info": {
+    "name": "top"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "test": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}
