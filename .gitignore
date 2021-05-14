@@ -67,3 +67,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+############################
+# Strapi Heroku
+############################
+
+cms/package-lock.json
