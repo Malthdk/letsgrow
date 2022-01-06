@@ -7,31 +7,27 @@
 
 import * as React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import Navigation from "./navigation"
 import Header from "./header"
 import Footer from "./footer"
+import SimpleReactLightbox from 'simple-react-lightbox'
+
 import "./layout.css"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
 
   return (
     <>
+    <div is="outer-container">
     <Navigation />
+    <SimpleReactLightbox>
     <Header />
     <div className="content-wrapper">
-        <main>{children}</main>
+        <main id="page-wrap">{children}</main>
     </div>
     <Footer />
+    </SimpleReactLightbox>
+    </div>
     </>
   )
 }

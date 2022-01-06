@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "quotes",
+  "info": {
+    "name": "quote"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quote": {
+      "type": "text"
+    }
+  }
+}

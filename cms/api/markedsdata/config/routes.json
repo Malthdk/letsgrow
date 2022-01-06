@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/markedsdata",
+      "handler": "markedsdata.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/markedsdata",
+      "handler": "markedsdata.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/markedsdata",
+      "handler": "markedsdata.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

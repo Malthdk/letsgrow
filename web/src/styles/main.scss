@@ -1,21 +1,20 @@
 @import './mixins.scss';
+@import './variables.scss';
+@import './hamburger.scss';
+@import './chat-animation.scss';
+@import './buttons.scss';
+@import './call-to-action.scss';
 
-// Google Fonts
-@import url(http://fonts.googleapis.com/css?family=Roboto+Slab|Open+Sans:400italic,700italic,400,700);
-
-// Font Variables
-$font-secondary: 'Roboto Slab', serif;   
-$font-primary: 'Open Sans', sans-serif;
-
-// Colors
-$color-primary: #000;
-$color-primary-contrast: #fff;
-$color-background: #fff;
-$color-accent: #DFEB95;
-$color-accent-alt: #95C594;
+html {
+    scroll-behavior: smooth;
+}
 
 body {
     font-family: $font-primary;
+}
+
+.hide {
+    display: none;
 }
 
 .navigation {
@@ -32,6 +31,7 @@ body {
     padding: 0 1rem;
     left: 50%;
     transform: translate(-50%, 0);
+    z-index: 1;
 
     @include screen--lg-up($withoutSuffix: true) {
         padding: 0;
@@ -66,63 +66,66 @@ body {
     }
 }
 
+.carousel-item {
+    max-width: 680px;
+    margin: 0.5rem auto;
+    padding: 1rem;
+    text-align: center;
+}
+
 .header {
     margin: 0 auto;
     width: 100%;
     max-width: 980px;
     display: flex;
-    height: 580px;
     align-items: center;
-    padding: 0 1rem;
+    padding: 2rem 1rem 0;
     flex-direction: row;
 
-    @include screen--md-up($withoutSuffix: true) {
-        padding: 0;
+    @include screen--lg-up($withoutSuffix: true) {
+        padding: 0;    
+        height: 450px;
     }
 
     @include screen--sm-only($withoutSuffix: true) {
         flex-direction: column;
-        padding: 5rem 1rem;
+        padding: 5rem 1rem 1rem;
         text-align: center;
     }
 
     &__image {
         margin-top: 1rem;
-        width: 80%;
+        width: 90%;
 
         @include screen--md-up($withoutSuffix: true) {
-            width: 40%;
+            margin-top: 5rem;
+            width: 45%;
         }
     }
 
     &__headline {
+        padding: 1rem;
+
         @include screen--md-up($withoutSuffix: true) {
-            width: 60%;
+            width: 55%;
+            padding: 4rem 1rem 1rem 0;
         }
     }
 }
 
 .headline {
-    font-family: $font-primary;
+    font-family: $font-condensed;
+    font-weight: 700;
     color: $color-primary-contrast;
     padding: 1rem 1rem 1rem 0;
+    margin-bottom: 0;
 }
 
-.button {
-    background: $color-accent;
-    border-radius: 5px;
-    padding: 0.4rem 2rem;
-    width: fit-content;
+.subheadline {
     font-family: $font-primary;
-    color: $color-primary;
-    text-transform: uppercase;
-    display: block;
-    text-decoration: none;
-    margin: 0 auto;
-
-    @include screen--md-up($withoutSuffix: true) {
-        margin: 0;
-    }
+    font-size: 18px;
+    color: $color-primary-contrast;
+    line-height: 1.4;
 }
 
 .content-wrapper {
@@ -136,13 +139,88 @@ body {
     }
 }
 
+.carousel-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include screen--md-up($withoutSuffix: true) {
+        flex-direction: row;
+    }
+}
+
+.content-reference {
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.reference-author {
+    font-family: $font-primary;
+}
+
+.reference-image {
+    max-width: 160px;
+
+    @include screen--md-up($withoutSuffix: true) {
+        width: 120px;
+    }
+}
+
 .content {
-    margin: 3rem auto;
+    margin: 1rem auto;
+
+    @include screen--md-up($withoutSuffix: true) {
+        margin: 3rem auto;
+    }
+
+    &--full-width {
+        margin: 0 calc(50% - 50vw);
+        width: 100vw;    
+    }
+
+    &--grey {
+        background-color: $color-grey;
+    }
+
+    &--alt-color {
+        background-color: $color-accent-alt;  
+        color: $color-primary-contrast;
+    }
+
+    &-headline {
+        font-family: $font-condensed;
+        padding: 1rem;
+        margin-bottom: 0;
+        line-height: 1.2;
+        font-size: 26px;
+
+        &--no-padding-right{
+            padding: 1rem 1rem 1rem 0;
+        }
+    }
+
+    &-fact {
+        max-width: 680px;
+        margin: 0.5rem auto;
+        font-family: $font-condensed;
+        font-size: 1.2rem;
+        padding: 1rem;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    &-reference {
+        font-family: $font-condensed;
+        font-size: 1.2rem;
+        padding: 1rem;
+        line-height: 1.4;
+    }
 
     &-title {
         font-family: $font-secondary;
         font-size: 3rem;
         text-align: center;
+        padding-top: 1.5rem;
 
         &:after {
             content: '';
@@ -157,6 +235,70 @@ body {
     &-description {
         font-family: $font-primary;
     }
+
+    &-image {
+        position: relative;
+    }
+
+    &-icon {
+        width: 120px;
+        display: block;
+        margin: 0 auto;
+
+        &--autow {
+            @include screen--md-up($withoutSuffix: true) {
+                width: auto;
+            }
+        }
+    }
+
+    &__icon-description {
+        background: #F6F4EF;
+        position: relative;
+        font-family: $font-condensed;
+        top: -2rem;
+        z-index: -1;
+        padding-top: 2rem;
+        font-size: 16px;
+    }
+
+    &__flex-col {
+        display: flex;
+        flex-wrap: wrap;
+
+        @include screen--md-up($withoutSuffix: true) {
+            flex-wrap: nowrap;
+        }
+
+        &--centered{
+            align-items: center;
+        }
+    }
+
+    &__flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include screen--md-up($withoutSuffix: true) {
+            flex-direction: row;
+        }
+    }
+
+    &__col {
+        flex: 1;
+        padding: 1rem;
+    }
+
+    &__item {
+        flex: 1;
+        margin: 0.5rem 2rem;
+        text-align: center;
+
+        @include screen--md-up($withoutSuffix: true) {
+            margin: 1rem;
+        }
+    }
 }
 
 .footer-bg {
@@ -170,7 +312,7 @@ body {
         position: absolute;
         overflow: hidden;
         width: 100%;
-        height: 210px;
+        height: 670px;
         z-index: -1;
     }
 }
@@ -179,11 +321,16 @@ body {
     margin: 0 auto;
     width: 100%;
     max-width: 980px;
-    display: flex;
-    align-items: center;
-    padding: 7rem 1rem 0;
     font-family: $font-primary;
     color: $color-primary-contrast;
+    padding: 2rem 1rem 0;
+    background: #304E76;
+
+    @include screen--md-up($withoutSuffix: true) {
+        display: flex;
+        padding: 7rem 1rem 0;
+        background: none;
+    }
 
     @include screen--lg-up($withoutSuffix: true) {
         padding: 7.5rem 0 0;
@@ -192,4 +339,108 @@ body {
     a {
         color: $color-primary-contrast;
     }
+
+    &__description {
+        margin: 0 auto;
+    }
+
+    &__col {
+        flex: 1;
+        padding: 1rem;
+    }
+
+    &__header{
+        font-family: $font-condensed;
+        margin: 1rem 0;
+    }
+}
+
+.video {
+    padding: 3rem 0 0;
+
+    @include screen--md-up($withoutSuffix: true) {
+        padding: 5rem 0 0;
+    }
+
+    iframe {
+        border-radius: 2rem;
+    }
+}
+
+.offer {
+    border-radius: 2rem;
+    margin-top: 1rem;
+
+    @include screen--md-up($withoutSuffix: true) {
+        margin-top: 2rem;
+    }
+}
+
+.dot-pattern {
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image:  radial-gradient(#CDCDCD 0.5px, transparent 0.5px), radial-gradient(#CDCDCD 0.5px, #e5e5f7 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0,10px 10px;
+}
+
+.arrow-box {
+	position: relative;
+	background: $color-grey;
+	border: 2px solid #fff;
+    color: black;
+}
+.arrow-box:after, .arrow-box:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: "";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow-box:after {
+	border-color: rgba(101, 157, 164, 0);
+	border-left-color: $color-grey;
+	border-width: 10px;
+	margin-top: -10px;
+}
+.arrow-box:before {
+	border-color: rgba(245, 245, 245, 0);
+	border-left-color: #fff;
+	border-width: 13px;
+	margin-top: -13px;
+}
+
+.credit-link {
+	padding: 1rem 0;
+    font-size: 0.6rem;
+    
+    a {
+        color: #74adce;
+    }
+}
+
+// Carousel specific styling
+
+.carousel.carousel-slider .control-arrow {
+    padding: 25px!important;
+}
+
+
+// Lightbox specific styling
+
+.SRLCaptionContainer,
+.SRLCaptionText,
+.SRLThumbnailsContainer,
+.SRLNextButton,
+.SRLPrevButton,
+.SRLAutoplayButton {
+    display: none!important;
+}
+
+.cursor-hover {
+    cursor: zoom-in;
 }

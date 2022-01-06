@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/quote",
+      "handler": "quote.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/quote",
+      "handler": "quote.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/quote",
+      "handler": "quote.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/why",
+      "handler": "why.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/why",
+      "handler": "why.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/why",
+      "handler": "why.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
