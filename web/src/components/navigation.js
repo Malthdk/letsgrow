@@ -7,7 +7,10 @@ const Navigation = () => (
         <a className="navigation__logo" href="/">
         <Logo />
         </a>
-        <Hamburger />
+        <div className="flex items-center">
+          <div className="headline text-xl pt-7 pr-6">51 51 77 83</div>
+          <Hamburger />
+        </div>
     </div>
 )
 

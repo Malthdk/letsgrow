@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `LetsGROW - Vi hjælper med at bygge jeres salgsmotor`,
-    description: `Fokuser på din kerneforretning så hjælper vi med den organiske vækst via proaktiv og struktureret salg`,
+    title: `Din vækstparter - Mødebooking og CRM til B2B Tech`,
+    description: `Kanvas kan være svært at håndtere internt, vi gør det ordentligt og videns deler i jeres CRM / kundestyringssystem.`,
     author: `Toke Hølledig`,
   },
   plugins: [
@@ -22,6 +22,7 @@ module.exports = {
         }
       }
     },
+    'gatsby-plugin-postcss',
     `gatsby-plugin-sass`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -54,7 +55,8 @@ module.exports = {
     {
       resolve: "gatsby-source-strapi",
       options: {
-        apiURL: process.env.API_URL || "http://localhost:1337",
+        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
+        accessToken: process.env.STRAPI_TOKEN,
         singleTypes: [`header`, `why`, `how`, `what`, `footer`, `markedsdata`, `quote`],
         queryLimit: 1000,
       },
@@ -84,16 +86,5 @@ module.exports = {
           ]
       }
     },
-  {
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      // The property ID; the tracking code won't be generated without it
-      trackingId: "UA-207354593-1",
-      head: true,
-    },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
-  },
   ],
 }

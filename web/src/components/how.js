@@ -1,5 +1,5 @@
 import * as React from "react"
-import { StaticQuery, graphql } from 'gatsby'
+import { StaticQuery, graphql, Script } from 'gatsby'
 import { StaticImage } from "gatsby-plugin-image"
 import Markdown from "react-markdown"
 import { SRLWrapper } from "simple-react-lightbox";
@@ -33,6 +33,7 @@ const How = () => (
             />
           </SRLWrapper>
         </div>
+        <iframe src="https://www.videoask.com/an53h4x72sc6r0wlbnksy3cwsmz34hsvykztck9d" allow="autoplay *; encrypted-media *; fullscreen *;" width="100%" height="600px"></iframe>
         <div className="content__col">
           
           <h2 className="content-headline content-headline--no-padding-right">

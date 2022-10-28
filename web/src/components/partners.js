@@ -81,6 +81,17 @@ const Partners = () => (
           </div>
           </a>
         </div>
+        <div className="content__item">
+        <a href="https://aks2tal.com/" target="_blank" rel="noreferrer">
+        <div className="content-icon content-icon--autow">
+        <StaticImage
+              src="../images/aks2tal.jpg"
+              height={120}
+              alt="aks 2 tal"
+            />
+          </div>
+          </a>
+        </div>
       </div>
     </div>
 )

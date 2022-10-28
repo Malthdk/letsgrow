@@ -9,7 +9,7 @@ const ReferenceCarousel = () => {
       <Carousel autoPlay={true} infiniteLoop={true} showIndicators={false} showThumbs={false} showStatus={false} interval={8000} >
           <div class="carousel-item">
             <div className="content-reference">
-            ”Toke hjalp med at vækste vores forretning ved at finde ny oplagt målgruppe, tilpasse salgsprocessen i CRM og <strong>konvertere over 17% af kanvas-emnerne</strong> til varme møder i min kalender”
+            ”Toke vækstede vores forretning ved at finde ny oplagt målgruppe, tilpasse salgsprocessen i CRM og <strong>konvertere over 17% af kanvas-emnerne</strong> til varme møder i min kalender. I 2021 øgede han i gns. vores <strong>pipeline med 20k i timen</strong>”
             </div>
             
             <div className="reference-image">
@@ -34,6 +34,19 @@ const ReferenceCarousel = () => {
               alt="it-huset"
             />
             <h5 className="reference-author">Jonas<br />IT-huset</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div className="content-reference">
+            ”Godt forarbejde og en åben dialog er vejen til flere varme møder - LETSGROW har hjulpet os til at finde vej.
+            </div>
+            <div className="reference-image">
+            <StaticImage
+              src="../images/reference3.png"
+              placeholder="tracedSVG"
+              alt="akt 2 tal"
+            />
+            <h5 className="reference-author">Allan<br />AKS2tal</h5>
             </div>
           </div>
       </Carousel>
